@@ -655,6 +655,13 @@
     </div>
   </footer>
 
+  <!-- Floating Scroll To Top Button -->
+  <button id="scrollToTopBtn" onclick="scrollToTop()" aria-label="Scroll to top" class="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 w-12 h-12 rounded-full bg-slate-900/90 border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-slate-950 flex items-center justify-center shadow-xl shadow-black/60 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
   <!-- Vanilla JS -->
   <script>
     function toggleMobileMenu() {
@@ -670,6 +677,25 @@
       // In production, hook up to Formspree, Web3Forms, or direct mailto
       form.classList.add('hidden');
       success.classList.remove('hidden');
+    }
+
+    // Scroll To Top Button Logic
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+        scrollBtn.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        scrollBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        scrollBtn.classList.remove('opacity-100', 'translate-y-0');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   </script>
 </body>

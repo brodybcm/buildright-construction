@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuildRight Construction — Guía de Estudio y Examen de Práctica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .gold-accent { color: #d4af37; }
+    .bg-gold { background-color: #d4af37; }
+    .border-gold { border-color: #d4af37; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen pb-16">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 sticky top-0 z-30 backdrop-blur-md px-4 py-4 sm:px-8">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-extrabold text-xl">
+          BR
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            BuildRight Construction
+            <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/30">Georgia PSI Prep</span>
+          </h1>
+          <p class="text-xs text-slate-400">Guía de Examen Bilingüe (English & Español) para Rigo</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
+        <span class="text-slate-400">Progreso Total:</span>
+        <span id="score-tracker" class="font-bold text-amber-400">0 / 30 Respondidas</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notice Banner -->
+  <div class="max-w-5xl mx-auto px-4 mt-6">
+    <div class="bg-gradient-to-r from-amber-500/10 via-slate-800/60 to-amber-500/10 border border-amber-500/30 rounded-xl p-4 sm:p-5 flex items-start gap-3">
+      <span class="text-2xl">💡</span>
+      <div class="text-xs sm:text-sm text-slate-300 space-y-1">
+        <p class="font-semibold text-amber-300">¡Nota Clave para Rigo sobre el Examen Oficial de Georgia!</p>
+        <p>El examen oficial de PSI se presenta <strong>únicamente en inglés</strong> y es <strong>a libro abierto (open-book)</strong>. En esta prueba de práctica encontrarás cada pregunta en inglés tal como aparece en el examen, acompañada de su traducción al español y la palabra clave que debes buscar en los índices de los libros.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="max-w-5xl mx-auto px-4 mt-6">
+    <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <button onclick="switchTab('tab-law')" id="btn-tab-law" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-amber-500 text-slate-950 shadow-md">
+        ⚖️ 1. Leyes y Negocios (15)
+      </button>
+      <button onclick="switchTab('tab-trade')" id="btn-tab-trade" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+        🔨 2. Examen Técnico Residencial (15)
+      </button>
+      <button onclick="switchTab('tab-glossary')" id="btn-tab-glossary" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+        📖 Vocabulario Clave (Glosario)
+      </button>
+      <button onclick="switchTab('tab-tips')" id="btn-tab-tips" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+        🎯 Estrategia "Libro Abierto"
+      </button>
+    </div>
+  </div>
+
+  <!-- TAB 1: Business & Law -->
+  <main id="tab-law" class="tab-content max-w-5xl mx-auto px-4 mt-6 space-y-6">
+    <div class="flex justify-between items-center bg-slate-800/40 p-3 rounded-lg border border-slate-800">
+      <div>
+        <h2 class="text-base font-bold text-white">Parte 1: Business & Law (Leyes, Contratos y Seguridad)</h2>
+        <p class="text-xs text-slate-400">Referencia: NASCLA Contractors Guide to Business, Law and Project Management – Georgia Edition</p>
+      </div>
+      <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">15 Preguntas</span>
+    </div>
+
+    <div id="law-questions-container" class="space-y-6"></div>
+  </main>
+
+  <!-- TAB 2: Residential Basic Trade -->
+  <main id="tab-trade" class="tab-content max-w-5xl mx-auto px-4 mt-6 space-y-6 hidden">
+    <div class="flex justify-between items-center bg-slate-800/40 p-3 rounded-lg border border-slate-800">
+      <div>
+        <h2 class="text-base font-bold text-white">Parte 2: Residential Basic Trade (Construcción y Código IRC)</h2>
+        <p class="text-xs text-slate-400">Referencia: International Residential Code (IRC), Carpentry & Building Construction, OSHA 1926</p>
+      </div>
+      <span class="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">15 Preguntas</span>
+    </div>
+
+    <div id="trade-questions-container" class="space-y-6"></div>
+  </main>
+
+  <!-- TAB 3: Glossary -->
+  <section id="tab-glossary" class="tab-content max-w-5xl mx-auto px-4 mt-6 space-y-6 hidden">
+    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6">
+      <h2 class="text-xl font-bold text-amber-400 mb-2">Palabras Clave en Inglés que Siempre Salen en el Examen</h2>
+      <p class="text-sm text-slate-300 mb-6">Aprenderse estas palabras le permitirá a Rigo identificar inmediatamente qué le están preguntando y en qué capítulo buscar.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="glossary-container"></div>
+    </div>
+  </section>
+
+  <!-- TAB 4: Strategy & Tips -->
+  <section id="tab-tips" class="tab-content max-w-5xl mx-auto px-4 mt-6 space-y-6 hidden">
+    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6 space-y-6">
+      <h2 class="text-xl font-bold text-amber-400">Cómo Ganar el Examen a "Libro Abierto" sin Hablar Inglés Fluido</h2>
+
+      <div class="space-y-4 text-sm text-slate-300">
+        <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800">
+          <h3 class="font-bold text-white text-base mb-1">1. Las Pestañas (Tabs) de los Libros son tu Mejor Arma</h3>
+          <p>No se intenta leer todo el libro durante el examen. Se usan pestañas oficiales de colores (tabs) colocadas en los capítulos exactos: Fundaciones, Madera/Framing, Escaleras, Techos, Lien Laws, OSHA. En el examen Rigo solo va directamente a la pestaña que corresponde a la palabra clave.</p>
+        </div>
+
+        <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800">
+          <h3 class="font-bold text-white text-base mb-1">2. Buscar Números y Medidas</h3>
+          <p>La mayoría de las preguntas técnicas del IRC preguntan medidas exactas: ¿Cuál es el riser máximo? (7-3/4"). ¿Cuál es el tread mínimo? (10"). ¿A qué altura se requiere barandal? (30"). Los números son universales y fáciles de identificar en las tablas.</p>
+        </div>
+
+        <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800">
+          <h3 class="font-bold text-white text-base mb-1">3. La Regla de los 3 Pases</h3>
+          <p><strong>Pase 1:</strong> Contesta primero todas las preguntas que te sepas de memoria en menos de 30 segundos (ej. medidas comunes, OSHA 6 pies).<br>
+          <strong>Pase 2:</strong> Busca las preguntas con palabras clave fáciles en los índices de tus libros tabulados.<br>
+          <strong>Pase 3:</strong> Las preguntas difíciles o cálculos largos déjalos para los últimos 30 minutos.</p>
+        </div>
+
+        <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800">
+          <h3 class="font-bold text-white text-base mb-1">4. Puntaje para Aprobar</h3>
+          <p>No se necesita sacar un 100%. Solo se necesita un <strong>70%</strong> para obtener la licencia (56 correctas de 80 en el técnico, 35 correctas de 50 en leyes). ¡Cada punto cuenta!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Question Data & Interactive Script -->
+  <script>
+    const lawQuestions = [
+      {
+        id: "l1",
+        book: "NASCLA GA Business & Law",
+        keyword: "Claim of Lien / Lien Rights",
+        en: "In Georgia, within how many days from the last day work or materials were furnished must a contractor file a Claim of Lien?",
+        es: "¿En Georgia, dentro de cuántos días a partir del último día en que se suministró trabajo o materiales debe un contratista registrar un Reclamo de Gravamen (Claim of Lien)?",
+        options: [
+          { text: "30 days (30 días)", correct: false },
+          { text: "60 days (60 días)", correct: false },
+          { text: "90 days (90 días)", correct: true },
+          { text: "120 days (120 días)", correct: false }
+        ],
+        expl: "Under Georgia Lien Law (O.C.G.A. § 44-14-361.1), a Claim of Lien must be filed within 90 days of the completion of work or last furnishing of labor/materials.",
+        explEs: "Según la Ley de Gravámenes de Georgia, un contratista tiene 90 días exactos para registrar un lien en la corte del condado después de terminar el trabajo o dejar los materiales."
+      },
+      {
+        id: "l2",
+        book: "NASCLA GA Business & Law",
+        keyword: "Workers' Compensation / Employees",
+        en: "Under Georgia law, workers' compensation insurance is mandatory for employers who regularly employ how many or more workers?",
+        es: "¿Bajo la ley de Georgia, el seguro de compensación para trabajadores (Workers' Comp) es obligatorio para empleadores que contratan regularmente a cuántos o más trabajadores?",
+        options: [
+          { text: "1 or more (1 o más)", correct: false },
+          { text: "3 or more (3 o más)", correct: true },
+          { text: "5 or more (5 o más)", correct: false },
+          { text: "10 or more (10 o más)", correct: false }
+        ],
+        expl: "In Georgia, any business with 3 or more regular employees (including officers/members who do not exempt themselves) must carry Workers' Compensation insurance.",
+        explEs: "En Georgia la regla es 3 o más empleados. Si Rigo trabaja solo o con un ayudante ocasional no es obligatorio por ley, pero a partir de 3 personas en nómina sí lo es."
+      },
+      {
+        id: "l3",
+        book: "OSHA 1926 / Safety",
+        keyword: "Fall Protection / 6 Feet",
+        en: "According to OSHA 1926 Subpart M, fall protection is required for residential construction employees working at heights of how many feet or higher above a lower level?",
+        es: "¿De acuerdo con OSHA 1926 Subparte M, se requiere protección contra caídas (fall protection) para trabajadores residenciales a una altura de cuántos pies o más?",
+        options: [
+          { text: "4 feet (4 pies)", correct: false },
+          { text: "6 feet (6 pies)", correct: true },
+          { text: "8 feet (8 pies)", correct: false },
+          { text: "10 feet (10 pies)", correct: false }
+        ],
+        expl: "OSHA standard 1926.501 requires fall protection (guardrails, safety nets, or personal fall arrest systems) whenever residential construction workers are exposed to falls of 6 feet or greater.",
+        explEs: "Para construcción residencial el número mágico de OSHA siempre es 6 pies (1.8 metros). En industria general son 4 pies, pero en construcción residencial es 6 pies."
+      },
+      {
+        id: "l4",
+        book: "OSHA 1926 / Excavations",
+        keyword: "Trench / Excavation Shoring",
+        en: "OSHA requires a protective system (sloping, shoring, or shielding) for excavations and trenches at what minimum depth?",
+        es: "¿OSHA requiere un sistema de protección (apuntalamiento, declive o caja de trinchera) para excavaciones y zanjas a partir de qué profundidad mínima?",
+        options: [
+          { text: "3 feet (3 pies)", correct: false },
+          { text: "4 feet (4 pies)", correct: false },
+          { text: "5 feet (5 pies)", correct: true },
+          { text: "6 feet (6 pies)", correct: false }
+        ],
+        expl: "OSHA 1926.652 mandates that trenches 5 feet deep or greater require protective systems unless made entirely in stable rock.",
+        explEs: "Zanjas de 5 pies (1.5 m) o más requieren protección obligatoria contra derrumbes."
+      },
+      {
+        id: "l5",
+        book: "EPA / Environmental",
+        keyword: "Lead-Safe / 1978 / RRP Rule",
+        en: "Under the EPA Lead Renovation, Repair, and Painting (RRP) rule, lead-safe work practices apply to residential dwellings built prior to what year?",
+        es: "¿Bajo la regla de pintura y reparación con plomo (RRP) de la EPA, las prácticas seguras contra plomo aplican a viviendas construidas antes de qué año?",
+        options: [
+          { text: "1965", correct: false },
+          { text: "1972", correct: false },
+          { text: "1978", correct: true },
+          { text: "1986", correct: false }
+        ],
+        expl: "Lead-based paint was federally banned for residential use in 1978. Homes built before 1978 are presumed to contain lead paint.",
+        explEs: "En 1978 se prohibió la pintura con plomo en Estados Unidos. Cualquier remodelación en casas construidas antes de 1978 requiere precauciones especiales de plomo."
+      },
+      {
+        id: "l6",
+        book: "NASCLA GA Business & Law",
+        keyword: "Change Order / Contracts",
+        en: "When should a written Change Order be prepared and signed by both the contractor and the client?",
+        es: "¿Cuándo se debe preparar y firmar una Orden de Cambio (Change Order) escrita por ambas partes?",
+        options: [
+          { text: "After the extra work is finished (Después de terminar el trabajo extra)", correct: false },
+          { text: "Before the extra work begins (Antes de comenzar el trabajo extra)", correct: true },
+          { text: "At final billing and walkthrough (En la factura final)", correct: false },
+          { text: "Only if the cost exceeds $5,000 (Solo si pasa de $5,000)", correct: false }
+        ],
+        expl: "Change orders must always be agreed upon and signed before the change in scope or additional work begins to be legally enforceable.",
+        explEs: "Nunca se inicia un trabajo adicional sin que el cliente firme la orden de cambio antes. Esto evita que el cliente se niegue a pagar después."
+      },
+      {
+        id: "l7",
+        book: "NASCLA GA Business & Law",
+        keyword: "Accounting / Accrual vs Cash",
+        en: "Which accounting method recognizes revenue when earned and expenses when incurred, regardless of when cash is exchanged?",
+        es: "¿Qué método de contabilidad reconoce los ingresos cuando se ganan y los gastos cuando se incurren, sin importar cuándo se recibe el dinero en efectivo?",
+        options: [
+          { text: "Cash method (Método de efectivo)", correct: false },
+          { text: "Accrual method (Método de acumulación / Devengo)", correct: true },
+          { text: "Cost-plus method (Método de costo más margen)", correct: false },
+          { text: "Tax credit method (Método de crédito fiscal)", correct: false }
+        ],
+        expl: "The accrual accounting method matches revenue and expenses to the period in which they occur rather than when cash actually moves.",
+        explEs: "El método 'Accrual' registra facturas emitidas aunque el cliente aún no haya pagado, a diferencia del método 'Cash' que solo cuenta lo que entra al banco."
+      },
+      {
+        id: "l8",
+        book: "NASCLA GA Business & Law",
+        keyword: "General Liability / CGL",
+        en: "What type of insurance policy provides coverage for bodily injury and property damage suffered by third parties caused by your business operations?",
+        es: "¿Qué tipo de póliza de seguro cubre lesiones corporales y daños a la propiedad de terceros causados por las operaciones de su negocio?",
+        options: [
+          { text: "Commercial General Liability (CGL) (Responsabilidad Civil General)", correct: true },
+          { text: "Builder's Risk Insurance (Seguro de Riesgo del Constructor)", correct: false },
+          { text: "Errors and Omissions (Errores y Omisiones)", correct: false },
+          { text: "Commercial Auto Insurance (Seguro de Auto Comercial)", correct: false }
+        ],
+        expl: "Commercial General Liability (CGL) protects contractors against claims from third parties for bodily injury or physical damage to property.",
+        explEs: "General Liability es el seguro obligatorio que protege si por error dañas la casa del cliente o alguien que no trabaja contigo se lastima."
+      },
+      {
+        id: "l9",
+        book: "OSHA 1926 / Ladders",
+        keyword: "Extension Ladder / 3 Feet",
+        en: "When an extension ladder is used to access an upper landing surface, the side rails must extend at least how many feet above the landing?",
+        es: "¿Cuando se usa una escalera de extensión para subir a un techo o superficie alta, los rieles deben sobresalir al menos cuántos pies por encima del borde?",
+        options: [
+          { text: "1 foot (1 pie)", correct: false },
+          { text: "2 feet (2 pies)", correct: false },
+          { text: "3 feet (3 pies)", correct: true },
+          { text: "4 feet (4 pies)", correct: false }
+        ],
+        expl: "OSHA 1926.1053 requires that portable ladders used for access must extend at least 3 feet above the upper landing surface.",
+        explEs: "Regla clásica de OSHA: la escalera debe sobresalir como mínimo 3 pies (aproximadamente 3 peldaños) por encima del borde del techo para subir y bajar seguro."
+      },
+      {
+        id: "l10",
+        book: "Labor Law / IRS",
+        keyword: "Form I-9 / Employment",
+        en: "Which federal form is used by employers to verify the identity and legal employment authorization of newly hired individuals in the United States?",
+        es: "¿Qué formulario federal utilizan los empleadores para verificar la identidad y autorización legal de empleo de los nuevos contratados en EE.UU.?",
+        options: [
+          { text: "Form W-4", correct: false },
+          { text: "Form I-9", correct: true },
+          { text: "Form 1099", correct: false },
+          { text: "Form W-2", correct: false }
+        ],
+        expl: "Form I-9 (Employment Eligibility Verification) is mandated by USCIS for verifying employment authorization.",
+        explEs: "El Formulario I-9 es el documento oficial obligatorio para confirmar la elegibilidad de trabajar legalmente de cualquier empleado contratado."
+      },
+      {
+        id: "l11",
+        book: "IRS / Tax Law",
+        keyword: "Form 1099-NEC / Subcontractors",
+        en: "What IRS tax form must a general contractor issue to an unincorporated independent subcontractor paid $600 or more in a calendar year?",
+        es: "¿Qué formulario de impuestos del IRS debe entregar un contratista a un subcontratista independiente a quien le pagó $600 o más en un año?",
+        options: [
+          { text: "Form W-2", correct: false },
+          { text: "Form 1099-NEC", correct: true },
+          { text: "Form 1040-ES", correct: false },
+          { text: "Form 941", correct: false }
+        ],
+        expl: "Businesses use Form 1099-NEC (Nonemployee Compensation) to report payments of $600 or more to independent contractors.",
+        explEs: "La 1099-NEC se utiliza para reportar lo que le pagas a otros maestros o subcontratistas independientes que no están en tu nómina."
+      },
+      {
+        id: "l12",
+        book: "NASCLA GA Business & Law",
+        keyword: "Critical Path Method / CPM",
+        en: "In construction project scheduling, what is the term for the sequence of critical tasks that determines the total minimum project completion time?",
+        es: "¿En la programación de proyectos, cuál es el término para la secuencia de tareas críticas que determina la duración total mínima del proyecto?",
+        options: [
+          { text: "Float Time (Tiempo flotante)", correct: false },
+          { text: "Critical Path (Ruta Crítica)", correct: true },
+          { text: "Bar Chart (Gráfico de barras)", correct: false },
+          { text: "Milestone Loop (Ciclo de hitos)", correct: false }
+        ],
+        expl: "The Critical Path consists of dependent activities with zero float; any delay on the critical path directly delays the entire project.",
+        explEs: "La 'Critical Path' o Ruta Crítica son las tareas que no se pueden retrasar ni un día porque atrasarían la entrega final de la casa."
+      },
+      {
+        id: "l13",
+        book: "Labor Law / FLSA",
+        keyword: "Overtime / FLSA / 40 Hours",
+        en: "Under the Fair Labor Standards Act (FLSA), non-exempt hourly employees must receive overtime pay at what rate for hours worked over 40 in a workweek?",
+        es: "¿Bajo la ley FLSA, a qué tarifa deben cobrar las horas extras los empleados por hora que trabajen más de 40 horas en una semana?",
+        options: [
+          { text: "Straight time (Misma tarifa normal)", correct: false },
+          { text: "1.25 times regular rate (1.25 veces)", correct: false },
+          { text: "1.5 times regular rate (Tiempo y medio - 1.5x)", correct: true },
+          { text: "2.0 times regular rate (Doble tiempo)", correct: false }
+        ],
+        expl: "Overtime must be paid at 1.5 times the employee's regular hourly rate for all hours exceeding 40 during a single 7-day workweek.",
+        explEs: "Las horas extras después de 40 horas semanales se pagan a 'tiempo y medio' (1.5 veces el salario regular por hora)."
+      },
+      {
+        id: "l14",
+        book: "GA Secretary of State",
+        keyword: "License Renewal / CE Broker",
+        en: "How often must a Georgia Residential Contractor license be renewed?",
+        es: "¿Con qué frecuencia se debe renovar la licencia de Contratista Residencial de Georgia?",
+        options: [
+          { text: "Every year (Cada año)", correct: false },
+          { text: "Every 2 years (Cada 2 años - Biennial)", correct: true },
+          { text: "Every 3 years (Cada 3 años)", correct: false },
+          { text: "Every 5 years (Cada 5 años)", correct: false }
+        ],
+        expl: "Georgia contractor licenses are renewed biennially (every 2 years) along with completed continuing education credits.",
+        explEs: "La licencia de contratista en Georgia se renueva cada 2 años completando las horas requeridas de educación continua."
+      },
+      {
+        id: "l15",
+        book: "OSHA 1926",
+        keyword: "Hard Hats / Head Protection",
+        en: "According to OSHA regulations, head protection (hard hats) is required on construction job sites under which condition?",
+        es: "¿De acuerdo con OSHA, cuándo es obligatorio el uso de casco de protección en una obra de construcción?",
+        options: [
+          { text: "Only when pouring concrete (Solo al vaciar concreto)", correct: false },
+          { text: "Where there is potential for head injury from falling or flying objects (Donde haya riesgo de caída de objetos o golpes en la cabeza)", correct: true },
+          { text: "Only for supervisors and inspectors (Solo para supervisores)", correct: false },
+          { text: "Only inside confined spaces (Solo en espacios confinados)", correct: false }
+        ],
+        expl: "OSHA 1926.100 requires employees working in areas where there is a possible danger of head injury from impact, falling objects, or electrical shocks to wear protective helmets.",
+        explEs: "Siempre que exista la posibilidad de que caigan objetos, herramientas o materiales desde arriba, el casco es 100% obligatorio."
+      }
+    ];
+
+    const tradeQuestions = [
+      {
+        id: "t1",
+        book: "IRC / Stairs",
+        keyword: "Riser Height / Maximum 7-3/4",
+        en: "According to the International Residential Code (IRC), what is the maximum allowable height for a stair riser in a residential building?",
+        es: "¿De acuerdo con el Código Residencial Internacional (IRC), cuál es la altura MÁXIMA permitida para la contrahuella (riser) de una escalera?",
+        options: [
+          { text: "7 inches (7 pulgadas)", correct: false },
+          { text: "7-3/4 inches (7 y 3/4 pulgadas)", correct: true },
+          { text: "8-1/4 inches (8 y 1/4 pulgadas)", correct: false },
+          { text: "8-1/2 inches (8 y 1/2 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R311.7.5.1 sets the maximum riser height at 7-3/4 inches (197 mm).",
+        explEs: "Pregunta clásica del examen: El escalón hacia arriba (riser) no puede medir más de 7-3/4 pulgadas de alto."
+      },
+      {
+        id: "t2",
+        book: "IRC / Stairs",
+        keyword: "Tread Depth / Minimum 10",
+        en: "According to the IRC, what is the minimum allowable tread depth for a residential staircase?",
+        es: "¿De acuerdo con el IRC, cuál es la profundidad MÍNIMA permitida para la huella (tread - donde pisa el pie) de una escalera residencial?",
+        options: [
+          { text: "9 inches (9 pulgadas)", correct: false },
+          { text: "10 inches (10 pulgadas)", correct: true },
+          { text: "11 inches (11 pulgadas)", correct: false },
+          { text: "12 inches (12 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R311.7.5.2 sets the minimum tread depth at 10 inches (254 mm) measured horizontally.",
+        explEs: "Donde pisas el pie (tread) debe medir como mínimo 10 pulgadas de fondo para que sea seguro."
+      },
+      {
+        id: "t3",
+        book: "IRC / Egress Windows",
+        keyword: "Egress Window / Sill Height / 44 inches",
+        en: "For an emergency escape and rescue opening (bedroom egress window), what is the maximum allowable height from the finished floor to the bottom of the clear opening (sill height)?",
+        es: "¿Para una ventana de escape de emergencia (egress) en un dormitorio, cuál es la altura MÁXIMA permitida desde el piso hasta el alféizar (bottom of the sill)?",
+        options: [
+          { text: "36 inches (36 pulgadas)", correct: false },
+          { text: "40 inches (40 pulgadas)", correct: false },
+          { text: "44 inches (44 pulgadas)", correct: true },
+          { text: "48 inches (48 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R310.2.2 mandates that the sill height of emergency escape windows must not be more than 44 inches above the floor.",
+        explEs: "La ventana de escape de un cuarto no puede estar a más de 44 pulgadas del piso para que una persona o un bombero pueda salir o entrar fácilmente."
+      },
+      {
+        id: "t4",
+        book: "IRC / Egress Windows",
+        keyword: "Egress Net Clear Opening / 5.7 sq ft",
+        en: "What is the minimum net clear opening area required for an emergency escape window located on upper floors (grade floor vs upper floors)?",
+        es: "¿Cuál es el área libre neta mínima requerida para una ventana de escape de emergencia ubicada en pisos superiores?",
+        options: [
+          { text: "4.5 square feet (4.5 pies cuadrados)", correct: false },
+          { text: "5.0 square feet (5.0 pies cuadrados)", correct: false },
+          { text: "5.7 square feet (5.7 pies cuadrados)", correct: true },
+          { text: "6.2 square feet (6.2 pies cuadrados)", correct: false }
+        ],
+        expl: "IRC Section R310.2.1 requires a minimum of 5.7 sq ft net clear opening for upper floors (5.0 sq ft is permitted only at grade level floor).",
+        explEs: "En plantas altas la ventana abierta debe tener como mínimo 5.7 pies cuadrados de apertura neta (mínimo 20 pulgadas de ancho y 24 pulgadas de alto)."
+      },
+      {
+        id: "t5",
+        book: "Concrete Construction / ACI",
+        keyword: "Rebar Clearance / Concrete against Earth / 3 Inches",
+        en: "When concrete is cast directly against and permanently exposed to earth (such as in unformed footings), what is the minimum concrete cover required over reinforcing steel (rebar)?",
+        es: "¿Cuando el concreto se vacía directamente contra la tierra (como en una zapata/footing sin formaleta), cuál es la cobertura mínima de concreto requerida sobre las varillas (rebar)?",
+        options: [
+          { text: "1.5 inches (1.5 pulgadas)", correct: false },
+          { text: "2 inches (2 pulgadas)", correct: false },
+          { text: "3 inches (3 pulgadas)", correct: true },
+          { text: "4 inches (4 pulgadas)", correct: false }
+        ],
+        expl: "ACI 318 and IRC Section R404 require at least 3 inches of concrete protection between reinforcing steel and ground when concrete is placed directly against soil.",
+        explEs: "La varilla de acero nunca puede tocar la tierra. Debe tener al menos 3 pulgadas de concreto de protección para no oxidarse con la humedad del suelo."
+      },
+      {
+        id: "t6",
+        book: "IRC / Wood Framing",
+        keyword: "Floor Joist Bearing / 1.5 Inches",
+        en: "What is the minimum required bearing length for wood floor joists supported on wood or metal framing?",
+        es: "¿Cuál es la longitud mínima de apoyo (bearing) requerida para vigas de piso de madera (floor joists) que descansan sobre madera o metal?",
+        options: [
+          { text: "1 inch (1 pulgada)", correct: false },
+          { text: "1-1/2 inches (1 y 1/2 pulgadas)", correct: true },
+          { text: "2 inches (2 pulgadas)", correct: false },
+          { text: "3 inches (3 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R502.6 states that the ends of each joist must have not less than 1.5 inches of bearing on wood or metal, and not less than 3 inches on masonry/concrete.",
+        explEs: "Las vigas de madera (joists) deben descansar por lo menos 1-1/2 pulgadas sobre soleras de madera o metal (y 3 pulgadas si descansan sobre bloque o concreto)."
+      },
+      {
+        id: "t7",
+        book: "IRC / Decks & Porches",
+        keyword: "Guardrail Height / 36 Inches / 30 Inches Grade",
+        en: "According to the IRC, a protective guardrail is required along open-sided walking surfaces, decks, or porches that are more than how many inches above grade?",
+        es: "¿Según el IRC, a partir de cuántas pulgadas de altura sobre el nivel del suelo se requiere barandal de protección (guardrail) en una terraza o porche?",
+        options: [
+          { text: "24 inches (24 pulgadas)", correct: false },
+          { text: "30 inches (30 pulgadas)", correct: true },
+          { text: "36 inches (36 pulgadas)", correct: false },
+          { text: "42 inches (42 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R312.1.1 mandates guards for walking surfaces located more than 30 inches measured vertically to the floor or grade below.",
+        explEs: "Si una terraza o deck está a más de 30 pulgadas del suelo, es obligatorio poner barandal (el cual debe medir al menos 36 pulgadas de alto)."
+      },
+      {
+        id: "t8",
+        book: "IRC / Railings",
+        keyword: "Baluster Spacing / 4-Inch Sphere",
+        en: "Openings in residential guardrails and balusters must not allow the passage of a sphere of what diameter?",
+        es: "¿Las aberturas entre los balaustres de un barandal residencial no deben permitir el paso de una esfera de qué diámetro?",
+        options: [
+          { text: "3 inches (3 pulgadas)", correct: false },
+          { text: "4 inches (4 pulgadas)", correct: true },
+          { text: "5 inches (5 pulgadas)", correct: false },
+          { text: "6 inches (6 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R312.1.3 requires that openings in guards shall not allow passage of a 4-inch (102 mm) diameter sphere (to prevent toddlers from falling through).",
+        explEs: "Regla de seguridad infantil: el espacio entre los barrotes del barandal no puede ser mayor a 4 pulgadas (para que no quepa la cabeza de un niño)."
+      },
+      {
+        id: "t9",
+        book: "IRC / Roofing",
+        keyword: "Roof Slope / Asphalt Shingles / 2:12 vs 4:12",
+        en: "What is the absolute minimum roof slope permitted for the installation of asphalt shingles under the IRC?",
+        es: "¿Cuál es la pendiente mínima absoluta de techo permitida para instalar tejas de asfalto (shingles) según el IRC?",
+        options: [
+          { text: "1:12 slope", correct: false },
+          { text: "2:12 slope (con doble capa de fieltro/underlayment)", correct: true },
+          { text: "3:12 slope", correct: false },
+          { text: "4:12 slope", correct: false }
+        ],
+        expl: "IRC Section R905.2.2 permits asphalt shingles on slopes as low as 2:12 provided double-layer underlayment is installed. Slopes below 2:12 cannot use shingles.",
+        explEs: "Las tejas de asfalto nunca se instalan en techos con pendiente menor a 2:12. Entre 2:12 y 4:12 se requiere doble capa de papel sintético/fieltro impermeable."
+      },
+      {
+        id: "t10",
+        book: "IRC / Fire Separation",
+        keyword: "Garage Wall Separation / 1/2 Inch Gypsum",
+        en: "What is the minimum required thickness of gypsum wallboard on the garage side of a wall separating a garage from an adjacent residence?",
+        es: "¿Cuál es el grosor mínimo de drywall (gypsum board) requerido en el lado del garaje para separarlo de la casa?",
+        options: [
+          { text: "3/8 inch (3/8 pulgada)", correct: false },
+          { text: "1/2 inch (1/2 pulgada)", correct: true },
+          { text: "5/8 inch Type X (solo requerido si hay cuartos arriba)", correct: false },
+          { text: "3/4 inch (3/4 pulgada)", correct: false }
+        ],
+        expl: "IRC Table R302.6 requires not less than 1/2-inch gypsum board applied to the garage side of walls separating a garage from a dwelling. If there are habitable rooms above the garage, 5/8-inch Type X is required on the ceiling.",
+        explEs: "La pared entre el garaje y la vivienda necesita al menos drywall de 1/2 pulgada como barrera contra fuego."
+      },
+      {
+        id: "t11",
+        book: "Concrete Construction",
+        keyword: "Slump Test / Workability",
+        en: "What standard field test is performed on fresh batch concrete delivered to a job site to measure its consistency and workability?",
+        es: "¿Qué prueba estándar se realiza en el concreto fresco en la obra para medir su consistencia y trabajabilidad?",
+        options: [
+          { text: "Core compression test (Prueba de compresión de núcleos)", correct: false },
+          { text: "Slump test (Prueba de revenimiento / Slump)", correct: true },
+          { text: "Air entrainment test (Prueba de aire atrapado)", correct: false },
+          { text: "Rebound hammer test (Prueba de esclerómetro)", correct: false }
+        ],
+        expl: "The Slump Test measures the consistency and moisture/workability of concrete right before placement using a standard slump cone.",
+        explEs: "El Slump Test (con el cono de revenimiento) mide si el concreto viene muy aguado o muy seco antes de vaciarlo en la zapata o losa."
+      },
+      {
+        id: "t12",
+        book: "Masonry Construction",
+        keyword: "Mortar Types / Type M / High Strength",
+        en: "Which mortar type provides the highest compressive strength and is recommended for below-grade foundations, retaining walls, and heavy load conditions?",
+        es: "¿Qué tipo de mortero ofrece la mayor resistencia a la compresión y se recomienda para cimientos bajo tierra y muros de contención?",
+        options: [
+          { text: "Type M (Mortero Tipo M - Máxima resistencia)", correct: true },
+          { text: "Type S (Mortero Tipo S)", correct: false },
+          { text: "Type N (Mortero Tipo N - Uso general)", correct: false },
+          { text: "Type O (Mortero Tipo O - Baja resistencia)", correct: false }
+        ],
+        expl: "Remember the mnemonic 'MaSoN wOrK': Type M has the highest strength (2500 psi), followed by S, N, O, and K.",
+        explEs: "Para recordar los morteros se usa la palabra 'MaSoN wOrK'. El Tipo M es el más fuerte de todos y se usa para paredes bajo tierra y cimientos pesados."
+      },
+      {
+        id: "t13",
+        book: "IRC / Foundations",
+        keyword: "Anchor Bolts / 7 Inches Embedment",
+        en: "Wood foundation sill plates must be anchored to concrete foundation walls with anchor bolts embedded at least how many inches into the concrete?",
+        es: "¿Las soleras de madera (sill plates) deben anclarse a la cimentación de concreto con pernos embebidos al menos cuántas pulgadas en el concreto?",
+        options: [
+          { text: "4 inches (4 pulgadas)", correct: false },
+          { text: "5 inches (5 pulgadas)", correct: false },
+          { text: "7 inches (7 pulgadas)", correct: true },
+          { text: "10 inches (10 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R403.1.6 requires foundation anchor bolts (minimum 1/2-inch diameter) to be embedded at least 7 inches into masonry or concrete.",
+        explEs: "Los pernos de anclaje (anchor bolts) deben entrar al menos 7 pulgadas dentro del concreto de la pared o zapata para soportar vientos y sismos."
+      },
+      {
+        id: "t14",
+        book: "IRC / Framing",
+        keyword: "Treated Wood / Ground Contact",
+        en: "Where wood framing members or sill plates are placed in direct contact with concrete slabs or masonry exposed to the earth, what specification of wood is required?",
+        es: "¿Cuando las piezas de madera o soleras van en contacto directo con concreto o mampostería expuesta a la tierra, qué tipo de madera se exige?",
+        options: [
+          { text: "Standard SPF lumber (Madera regular de pino/abeto)", correct: false },
+          { text: "Preservative-treated or naturally decay-resistant lumber (Madera tratada a presión o resistente a la pudrición)", correct: true },
+          { text: "Kiln-dried hardwood (Madera dura secada al horno)", correct: false },
+          { text: "Engineered OSB (Tablero OSB)", correct: false }
+        ],
+        expl: "IRC Section R317.1 mandates preservative-treated wood (Pressure-Treated) or naturally durable wood (redwood, cedar) for any wood in contact with concrete or masonry in contact with ground.",
+        explEs: "Toda madera que toque concreto en contacto con el suelo tiene que ser Pressure-Treated (madera verde tratada a presión) para evitar pudrición y termitas."
+      },
+      {
+        id: "t15",
+        book: "IRC / Handrails",
+        keyword: "Handrail Height / 34 to 38 Inches",
+        en: "According to the IRC, what is the required height range for stair handrails, measured vertically from the sloped plane of the stair tread nosing?",
+        es: "¿De acuerdo con el IRC, cuál es el rango de altura obligatorio para los pasamanos de una escalera, medido verticalmente desde la orilla del escalón?",
+        options: [
+          { text: "30 to 34 inches (30 a 34 pulgadas)", correct: false },
+          { text: "34 to 38 inches (34 a 38 pulgadas)", correct: true },
+          { text: "36 to 42 inches (36 a 42 pulgadas)", correct: false },
+          { text: "38 to 44 inches (38 a 44 pulgadas)", correct: false }
+        ],
+        expl: "IRC Section R311.7.8.1 mandates that handrail height must be between 34 inches minimum and 38 inches maximum above stair nosings.",
+        explEs: "El pasamanos donde te agarras en la escalera debe estar exactamente entre 34 y 38 pulgadas de altura."
+      }
+    ];
+
+    const glossaryItems = [
+      { en: "Joist", es: "Viga de piso o techo", desc: "Maderas horizontales que sostienen el piso o el cielo raso." },
+      { en: "Rafter", es: "Viga de techo / Cabio", desc: "Maderas inclinadas que forman la caída del tejado." },
+      { en: "Sill Plate / Mud Sill", es: "Solera inferior", desc: "La pieza de madera tratada que se atornilla al concreto con los pernos de anclaje." },
+      { en: "Header", es: "Dintel / Viga de cabecera", desc: "Viga horizontal fuerte colocada sobre puertas o ventanas para desviar el peso." },
+      { en: "Stud", es: "Pie derecho / Poste", desc: "Madera vertical (ej. 2x4 o 2x6) que compone las paredes estructurales o divisiones." },
+      { en: "Span", es: "Luz / Claridad libre", desc: "La distancia libre entre dos puntos de apoyo de una viga sin pilares en medio." },
+      { en: "Footing", es: "Zapata de cimentación", desc: "Base ancha de concreto bajo tierra que reparte el peso de toda la casa." },
+      { en: "Riser", es: "Contrahuella / Peralte", desc: "La parte vertical de un escalón (máximo 7-3/4 pulgadas)." },
+      { en: "Tread", es: "Huella del escalón", desc: "La parte horizontal donde pisas el pie en una escalera (mínimo 10 pulgadas)." },
+      { en: "Egress", es: "Salida / Escape de emergencia", desc: "Ventana o puerta reglamentaria para escapar en caso de incendio." },
+      { en: "Guardrail / Guard", es: "Barandal de protección", desc: "Baranda obligatoria en terrazas o desniveles mayores a 30 pulgadas." },
+      { en: "Lien / Claim of Lien", es: "Gravamen / Embargo", desc: "Derecho legal para cobrar de una propiedad si el dueño no le paga al contratista." },
+      { en: "Change Order", es: "Orden de Cambio", desc: "Documento firmado que autoriza trabajos adicionales o modificaciones al contrato." },
+      { en: "Underlayment", es: "Papel base / Fieltro de techo", desc: "Capa impermeable debajo de los shingles o debajo de pisos." }
+    ];
+
+    let userAnswers = {};
+
+    function renderQuestions(containerId, questions) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      questions.forEach((q, index) => {
+        const qEl = document.createElement("div");
+        qEl.className = "bg-slate-800/80 border border-slate-700/80 rounded-xl p-5 sm:p-6 space-y-4 shadow-sm";
+        qEl.id = `card-${q.id}`;
+
+        let optionsHtml = "";
+        q.options.forEach((opt, optIndex) => {
+          optionsHtml += `
+            <button onclick="checkAnswer('${q.id}', ${optIndex}, ${opt.correct})" id="btn-${q.id}-${optIndex}" class="opt-btn w-full text-left p-3.5 rounded-lg border border-slate-700 bg-slate-900/60 hover:bg-slate-700/60 hover:border-slate-500 transition-all text-xs sm:text-sm font-medium text-slate-200 flex items-center justify-between">
+              <span><span class="font-bold text-amber-400 mr-2">${String.fromCharCode(65 + optIndex)}.</span>${opt.text}</span>
+              <span id="icon-${q.id}-${optIndex}" class="hidden ml-2 font-bold text-base"></span>
+            </button>
+          `;
+        });
+
+        qEl.innerHTML = `
+          <div class="flex items-center justify-between gap-2 border-b border-slate-700 pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Pregunta ${index + 1} de ${questions.length}</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs bg-slate-900 text-slate-400 px-2.5 py-0.5 rounded border border-slate-700">${q.book}</span>
+              <span class="text-xs bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded">Clave: ${q.keyword}</span>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <p class="font-semibold text-white text-sm sm:text-base leading-snug">${q.en}</p>
+            <p class="text-xs sm:text-sm text-amber-200/80 italic">${q.es}</p>
+          </div>
+
+          <div class="space-y-2 pt-2">
+            ${optionsHtml}
+          </div>
+
+          <div id="expl-${q.id}" class="hidden mt-4 pt-4 border-t border-slate-700/80 space-y-2 bg-slate-900/50 p-4 rounded-lg">
+            <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider" id="expl-title-${q.id}"></div>
+            <p class="text-xs sm:text-sm text-slate-300">${q.expl}</p>
+            <p class="text-xs sm:text-sm text-amber-300 font-medium">${q.explEs}</p>
+          </div>
+        `;
+        container.appendChild(qEl);
+      });
+    }
+
+    function checkAnswer(qid, selectedIndex, isCorrect) {
+      if (userAnswers[qid] !== undefined) return;
+      userAnswers[qid] = isCorrect;
+
+      const questions = [...lawQuestions, ...tradeQuestions];
+      const q = questions.find(item => item.id === qid);
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.getElementById(`btn-${qid}-${idx}`);
+        const icon = document.getElementById(`icon-${qid}-${idx}`);
+        btn.disabled = true;
+
+        if (opt.correct) {
+          btn.classList.remove("bg-slate-900/60", "border-slate-700");
+          btn.classList.add("bg-emerald-950/70", "border-emerald-500", "text-emerald-200");
+          icon.innerHTML = "✓ Correcta";
+          icon.classList.remove("hidden");
+          icon.classList.add("text-emerald-400");
+        } else if (idx === selectedIndex && !isCorrect) {
+          btn.classList.remove("bg-slate-900/60", "border-slate-700");
+          btn.classList.add("bg-rose-950/70", "border-rose-500", "text-rose-200");
+          icon.innerHTML = "✗ Incorrecta";
+          icon.classList.remove("hidden");
+          icon.classList.add("text-rose-400");
+        }
+      });
+
+      const explDiv = document.getElementById(`expl-${qid}`);
+      const explTitle = document.getElementById(`expl-title-${qid}`);
+      explDiv.classList.remove("hidden");
+
+      if (isCorrect) {
+        explTitle.innerHTML = `<span class="text-emerald-400">✓ ¡Respuesta Correcta!</span>`;
+      } else {
+        explTitle.innerHTML = `<span class="text-rose-400">✗ Respuesta Incorrecta</span>`;
+      }
+
+      updateTracker();
+    }
+
+    function updateTracker() {
+      const total = lawQuestions.length + tradeQuestions.length;
+      const answered = Object.keys(userAnswers).length;
+      const correct = Object.values(userAnswers).filter(v => v === true).length;
+      const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const tracker = document.getElementById("score-tracker");
+      tracker.innerHTML = `${answered} / ${total} Respondidas (${correct} Correctas - ${pct}%)`;
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.remove("bg-amber-500", "text-slate-950", "shadow-md");
+        btn.classList.add("bg-slate-800", "text-slate-300");
+      });
+
+      document.getElementById(tabId).classList.remove("hidden");
+      const activeBtn = document.getElementById(`btn-${tabId}`);
+      activeBtn.classList.add("bg-amber-500", "text-slate-950", "shadow-md");
+      activeBtn.classList.remove("bg-slate-800", "text-slate-300");
+    }
+
+    function renderGlossary() {
+      const container = document.getElementById("glossary-container");
+      glossaryItems.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "bg-slate-900/90 border border-slate-800 rounded-lg p-4 space-y-1 hover:border-amber-500/40 transition-all";
+        div.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-amber-400 text-base">${item.en}</span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded">${item.es}</span>
+          </div>
+          <p class="text-xs text-slate-400 pt-1">${item.desc}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    renderQuestions("law-questions-container", lawQuestions);
+    renderQuestions("trade-questions-container", tradeQuestions);
+    renderGlossary();
+  </script>
+</body>
+</html>

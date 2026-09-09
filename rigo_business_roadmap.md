@@ -20,9 +20,10 @@
 ## 🎨 Official Brand Kit Assets
 - **Business Name:** BuildRight Construction LLC
 - **Tagline:** Renovation. Repair. Remodel.
-- **Profile Picture (1:1 Square):** [`buildright_profile_avatar_1x1.jpg`](file:///C:/Users/byron/rigos%20handyman%20business/buildright_profile_avatar_1x1.jpg)
-- **Cover Banner (16:9):** [`buildright_social_cover_banner_16x9.jpg`](file:///C:/Users/byron/rigos%20handyman%20business/buildright_social_cover_banner_16x9.jpg)
-- **Bilingual Study Guide:** [`buildright_contractor_study_guide.html`](file:///C:/Users/byron/rigos%20handyman%20business/buildright_contractor_study_guide.html)
+- **Official Domain:** [buildrightconstructionga.com](http://buildrightconstructionga.com)
+- **Profile Picture (1:1 Square):** [`buildright_profile_avatar_dark_1x1.jpg`](file:///C:/Users/byron/rigos%20handyman%20business/buildright_profile_avatar_dark_1x1.jpg)
+- **Cover Banner (16:9):** [`buildright_social_cover_banner_dark_16x9.jpg`](file:///C:/Users/byron/rigos%20handyman%20business/buildright_social_cover_banner_dark_16x9.jpg)
+- **Bilingual Study Guide:** [buildrightconstructionga.com/buildright_contractor_study_guide.html](http://buildrightconstructionga.com/buildright_contractor_study_guide.html)
 
 ---
 
